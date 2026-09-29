@@ -35,5 +35,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: goldens-linux
-          path: test/goldens/goldens
+          # The whole directory: the matrix baselines live in
+          # test/goldens/goldens/ and the avatar baselines alongside it.
+          path: test/goldens
           retention-days: 14

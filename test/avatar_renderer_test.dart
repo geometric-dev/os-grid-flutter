@@ -94,7 +94,7 @@ void main() {
         find.byKey(const Key('grid')),
         matchesGoldenFile('goldens/avatar_basic.png'),
       );
-    });
+    }, tags: ['golden']);
 
     testWidgets('extracts first grapheme if single word', (tester) async {
       await pumpAvatarGrid(tester, value: 'John');
@@ -103,7 +103,7 @@ void main() {
         find.byKey(const Key('grid')),
         matchesGoldenFile('goldens/avatar_single_word.png'),
       );
-    });
+    }, tags: ['golden']);
 
     testWidgets('extracts first graphemes of first two words', (tester) async {
       await pumpAvatarGrid(tester, value: 'John Smith');
@@ -112,7 +112,7 @@ void main() {
         find.byKey(const Key('grid')),
         matchesGoldenFile('goldens/avatar_two_words.png'),
       );
-    });
+    }, tags: ['golden']);
 
     testWidgets('respects RTL text direction', (tester) async {
       await pumpAvatarGrid(tester, isRtl: true);
@@ -121,7 +121,7 @@ void main() {
         find.byKey(const Key('grid')),
         matchesGoldenFile('goldens/avatar_rtl.png'),
       );
-    });
+    }, tags: ['golden']);
 
     testWidgets('respects initialsGetter', (tester) async {
       await pumpAvatarGrid(
@@ -134,7 +134,7 @@ void main() {
         find.byKey(const Key('grid')),
         matchesGoldenFile('goldens/avatar_initials_getter.png'),
       );
-    });
+    }, tags: ['golden']);
 
     testWidgets('skips rendering if value is empty and no initials provided', (
       tester,
@@ -164,7 +164,7 @@ void main() {
         find.byKey(const Key('grid')),
         matchesGoldenFile('goldens/avatar_empty.png'),
       );
-    });
+    }, tags: ['golden']);
 
     testWidgets('handles narrow columns gracefully', (tester) async {
       await pumpAvatarGrid(tester, columnWidth: 20); // Not enough room for text
@@ -173,7 +173,7 @@ void main() {
         find.byKey(const Key('grid')),
         matchesGoldenFile('goldens/avatar_narrow.png'),
       );
-    });
+    }, tags: ['golden']);
 
     testWidgets('warm scroll achieves high TextPainterCache hit rate', (
       tester,
