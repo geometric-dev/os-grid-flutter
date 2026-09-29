@@ -1,0 +1,23 @@
+name: os_grid_flutter_charts_example
+description: Example app demonstrating the os_grid_flutter_charts renderers.
+publish_to: 'none'
+
+environment:
+    sdk: ^3.11.0
+    flutter: '>=3.41.0'
+
+dependencies:
+    flutter:
+        sdk: flutter
+    os_grid_flutter:
+        path: ../../..
+    os_grid_flutter_charts:
+        path: ../
+
+dev_dependencies:
+    flutter_lints: ^5.0.0
+    flutter_test:
+        sdk: flutter
+
+flutter:
+    uses-material-design: true

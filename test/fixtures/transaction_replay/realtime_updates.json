@@ -1,0 +1,1256 @@
+{
+  "name": "realtime-updates-50tx",
+  "description": "Real-time updates: 100 row updates spread over 50 transactions with 10 interleaved adds and 7 interleaved removes (recorded production-shaped sequence).",
+  "initialRows": [
+    {
+      "id": "r0",
+      "name": "Row 0",
+      "price": 10,
+      "region": "EU"
+    },
+    {
+      "id": "r1",
+      "name": "Row 1",
+      "price": 47,
+      "region": "US"
+    },
+    {
+      "id": "r2",
+      "name": "Row 2",
+      "price": 84,
+      "region": "APAC"
+    },
+    {
+      "id": "r3",
+      "name": "Row 3",
+      "price": 121,
+      "region": "EU"
+    },
+    {
+      "id": "r4",
+      "name": "Row 4",
+      "price": 158,
+      "region": "US"
+    },
+    {
+      "id": "r5",
+      "name": "Row 5",
+      "price": 195,
+      "region": "APAC"
+    },
+    {
+      "id": "r6",
+      "name": "Row 6",
+      "price": 232,
+      "region": "EU"
+    },
+    {
+      "id": "r7",
+      "name": "Row 7",
+      "price": 269,
+      "region": "US"
+    },
+    {
+      "id": "r8",
+      "name": "Row 8",
+      "price": 306,
+      "region": "APAC"
+    },
+    {
+      "id": "r9",
+      "name": "Row 9",
+      "price": 343,
+      "region": "EU"
+    },
+    {
+      "id": "r10",
+      "name": "Row 10",
+      "price": 380,
+      "region": "US"
+    },
+    {
+      "id": "r11",
+      "name": "Row 11",
+      "price": 17,
+      "region": "APAC"
+    },
+    {
+      "id": "r12",
+      "name": "Row 12",
+      "price": 54,
+      "region": "EU"
+    },
+    {
+      "id": "r13",
+      "name": "Row 13",
+      "price": 91,
+      "region": "US"
+    },
+    {
+      "id": "r14",
+      "name": "Row 14",
+      "price": 128,
+      "region": "APAC"
+    },
+    {
+      "id": "r15",
+      "name": "Row 15",
+      "price": 165,
+      "region": "EU"
+    },
+    {
+      "id": "r16",
+      "name": "Row 16",
+      "price": 202,
+      "region": "US"
+    },
+    {
+      "id": "r17",
+      "name": "Row 17",
+      "price": 239,
+      "region": "APAC"
+    },
+    {
+      "id": "r18",
+      "name": "Row 18",
+      "price": 276,
+      "region": "EU"
+    },
+    {
+      "id": "r19",
+      "name": "Row 19",
+      "price": 313,
+      "region": "US"
+    },
+    {
+      "id": "r20",
+      "name": "Row 20",
+      "price": 350,
+      "region": "APAC"
+    },
+    {
+      "id": "r21",
+      "name": "Row 21",
+      "price": 387,
+      "region": "EU"
+    },
+    {
+      "id": "r22",
+      "name": "Row 22",
+      "price": 24,
+      "region": "US"
+    },
+    {
+      "id": "r23",
+      "name": "Row 23",
+      "price": 61,
+      "region": "APAC"
+    },
+    {
+      "id": "r24",
+      "name": "Row 24",
+      "price": 98,
+      "region": "EU"
+    },
+    {
+      "id": "r25",
+      "name": "Row 25",
+      "price": 135,
+      "region": "US"
+    },
+    {
+      "id": "r26",
+      "name": "Row 26",
+      "price": 172,
+      "region": "APAC"
+    },
+    {
+      "id": "r27",
+      "name": "Row 27",
+      "price": 209,
+      "region": "EU"
+    },
+    {
+      "id": "r28",
+      "name": "Row 28",
+      "price": 246,
+      "region": "US"
+    },
+    {
+      "id": "r29",
+      "name": "Row 29",
+      "price": 283,
+      "region": "APAC"
+    },
+    {
+      "id": "r30",
+      "name": "Row 30",
+      "price": 320,
+      "region": "EU"
+    },
+    {
+      "id": "r31",
+      "name": "Row 31",
+      "price": 357,
+      "region": "US"
+    },
+    {
+      "id": "r32",
+      "name": "Row 32",
+      "price": 394,
+      "region": "APAC"
+    },
+    {
+      "id": "r33",
+      "name": "Row 33",
+      "price": 31,
+      "region": "EU"
+    },
+    {
+      "id": "r34",
+      "name": "Row 34",
+      "price": 68,
+      "region": "US"
+    },
+    {
+      "id": "r35",
+      "name": "Row 35",
+      "price": 105,
+      "region": "APAC"
+    },
+    {
+      "id": "r36",
+      "name": "Row 36",
+      "price": 142,
+      "region": "EU"
+    },
+    {
+      "id": "r37",
+      "name": "Row 37",
+      "price": 179,
+      "region": "US"
+    },
+    {
+      "id": "r38",
+      "name": "Row 38",
+      "price": 216,
+      "region": "APAC"
+    },
+    {
+      "id": "r39",
+      "name": "Row 39",
+      "price": 253,
+      "region": "EU"
+    }
+  ],
+  "initialSelection": [
+    "r3",
+    "r17",
+    "r29"
+  ],
+  "steps": [
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r0",
+          "name": "upd-0-0",
+          "price": 1000,
+          "region": "EU"
+        },
+        {
+          "id": "r13",
+          "name": "upd-0-1",
+          "price": 1001,
+          "region": "US"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r7",
+          "name": "upd-1-0",
+          "price": 1002,
+          "region": "US"
+        },
+        {
+          "id": "r20",
+          "name": "upd-1-1",
+          "price": 1003,
+          "region": "APAC"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r14",
+          "name": "upd-2-0",
+          "price": 1004,
+          "region": "APAC"
+        },
+        {
+          "id": "r27",
+          "name": "upd-2-1",
+          "price": 1005,
+          "region": "EU"
+        }
+      ],
+      "add": [
+        {
+          "id": "a0",
+          "name": "live-add-0",
+          "price": 110,
+          "region": "US"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r21",
+          "name": "upd-3-0",
+          "price": 1006,
+          "region": "EU"
+        },
+        {
+          "id": "r34",
+          "name": "upd-3-1",
+          "price": 1007,
+          "region": "US"
+        }
+      ],
+      "removeIds": [
+        "r16"
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r32",
+          "name": "upd-4-0",
+          "price": 1008,
+          "region": "APAC"
+        },
+        {
+          "id": "r4",
+          "name": "upd-4-1",
+          "price": 1009,
+          "region": "US"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r39",
+          "name": "upd-5-0",
+          "price": 1010,
+          "region": "EU"
+        },
+        {
+          "id": "r11",
+          "name": "upd-5-1",
+          "price": 1011,
+          "region": "APAC"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r5",
+          "name": "upd-6-0",
+          "price": 1012,
+          "region": "APAC"
+        },
+        {
+          "id": "r19",
+          "name": "upd-6-1",
+          "price": 1013,
+          "region": "US"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r12",
+          "name": "upd-7-0",
+          "price": 1014,
+          "region": "EU"
+        },
+        {
+          "id": "r26",
+          "name": "upd-7-1",
+          "price": 1015,
+          "region": "APAC"
+        }
+      ],
+      "add": [
+        {
+          "id": "a1",
+          "name": "live-add-1",
+          "price": 147,
+          "region": "APAC"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r19",
+          "name": "upd-8-0",
+          "price": 1016,
+          "region": "US"
+        },
+        {
+          "id": "r32",
+          "name": "upd-8-1",
+          "price": 1017,
+          "region": "APAC"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r26",
+          "name": "upd-9-0",
+          "price": 1018,
+          "region": "APAC"
+        },
+        {
+          "id": "r39",
+          "name": "upd-9-1",
+          "price": 1019,
+          "region": "EU"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r33",
+          "name": "upd-10-0",
+          "price": 1020,
+          "region": "EU"
+        },
+        {
+          "id": "r4",
+          "name": "upd-10-1",
+          "price": 1021,
+          "region": "US"
+        }
+      ],
+      "removeIds": [
+        "r10"
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r3",
+          "name": "upd-11-0",
+          "price": 1022,
+          "region": "EU"
+        },
+        {
+          "id": "r18",
+          "name": "upd-11-1",
+          "price": 1023,
+          "region": "EU"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r11",
+          "name": "upd-12-0",
+          "price": 1024,
+          "region": "APAC"
+        },
+        {
+          "id": "r25",
+          "name": "upd-12-1",
+          "price": 1025,
+          "region": "US"
+        }
+      ],
+      "add": [
+        {
+          "id": "a2",
+          "name": "live-add-2",
+          "price": 184,
+          "region": "EU"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r17",
+          "name": "upd-13-0",
+          "price": 1026,
+          "region": "APAC"
+        },
+        {
+          "id": "r30",
+          "name": "upd-13-1",
+          "price": 1027,
+          "region": "EU"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r24",
+          "name": "upd-14-0",
+          "price": 1028,
+          "region": "EU"
+        },
+        {
+          "id": "r37",
+          "name": "upd-14-1",
+          "price": 1029,
+          "region": "US"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r31",
+          "name": "upd-15-0",
+          "price": 1030,
+          "region": "US"
+        },
+        {
+          "id": "r1",
+          "name": "upd-15-1",
+          "price": 1031,
+          "region": "US"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r38",
+          "name": "upd-16-0",
+          "price": 1032,
+          "region": "APAC"
+        },
+        {
+          "id": "r8",
+          "name": "upd-16-1",
+          "price": 1033,
+          "region": "APAC"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r2",
+          "name": "upd-17-0",
+          "price": 1034,
+          "region": "APAC"
+        },
+        {
+          "id": "r17",
+          "name": "upd-17-1",
+          "price": 1035,
+          "region": "APAC"
+        }
+      ],
+      "add": [
+        {
+          "id": "a3",
+          "name": "live-add-3",
+          "price": 221,
+          "region": "US"
+        }
+      ],
+      "removeIds": [
+        "r3"
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r14",
+          "name": "upd-18-0",
+          "price": 1036,
+          "region": "APAC"
+        },
+        {
+          "id": "r28",
+          "name": "upd-18-1",
+          "price": 1037,
+          "region": "US"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r22",
+          "name": "upd-19-0",
+          "price": 1038,
+          "region": "US"
+        },
+        {
+          "id": "r35",
+          "name": "upd-19-1",
+          "price": 1039,
+          "region": "APAC"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r29",
+          "name": "upd-20-0",
+          "price": 1040,
+          "region": "APAC"
+        },
+        {
+          "id": "a2",
+          "name": "upd-20-1",
+          "price": 1041,
+          "region": "APAC"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r36",
+          "name": "upd-21-0",
+          "price": 1042,
+          "region": "EU"
+        },
+        {
+          "id": "r6",
+          "name": "upd-21-1",
+          "price": 1043,
+          "region": "EU"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "a3",
+          "name": "upd-22-0",
+          "price": 1044,
+          "region": "EU"
+        },
+        {
+          "id": "r14",
+          "name": "upd-22-1",
+          "price": 1045,
+          "region": "APAC"
+        }
+      ],
+      "add": [
+        {
+          "id": "a4",
+          "name": "live-add-4",
+          "price": 258,
+          "region": "APAC"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r2",
+          "name": "upd-23-0",
+          "price": 1046,
+          "region": "APAC"
+        },
+        {
+          "id": "r18",
+          "name": "upd-23-1",
+          "price": 1047,
+          "region": "EU"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r11",
+          "name": "upd-24-0",
+          "price": 1048,
+          "region": "APAC"
+        },
+        {
+          "id": "r25",
+          "name": "upd-24-1",
+          "price": 1049,
+          "region": "US"
+        }
+      ],
+      "removeIds": [
+        "a0"
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r26",
+          "name": "upd-25-0",
+          "price": 1050,
+          "region": "APAC"
+        },
+        {
+          "id": "r39",
+          "name": "upd-25-1",
+          "price": 1051,
+          "region": "EU"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r33",
+          "name": "upd-26-0",
+          "price": 1052,
+          "region": "EU"
+        },
+        {
+          "id": "r2",
+          "name": "upd-26-1",
+          "price": 1053,
+          "region": "APAC"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "a1",
+          "name": "upd-27-0",
+          "price": 1054,
+          "region": "US"
+        },
+        {
+          "id": "r11",
+          "name": "upd-27-1",
+          "price": 1055,
+          "region": "APAC"
+        }
+      ],
+      "add": [
+        {
+          "id": "a5",
+          "name": "live-add-5",
+          "price": 295,
+          "region": "EU"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "a4",
+          "name": "upd-28-0",
+          "price": 1056,
+          "region": "US"
+        },
+        {
+          "id": "r13",
+          "name": "upd-28-1",
+          "price": 1057,
+          "region": "US"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r6",
+          "name": "upd-29-0",
+          "price": 1058,
+          "region": "EU"
+        },
+        {
+          "id": "r21",
+          "name": "upd-29-1",
+          "price": 1059,
+          "region": "EU"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r14",
+          "name": "upd-30-0",
+          "price": 1060,
+          "region": "APAC"
+        },
+        {
+          "id": "r28",
+          "name": "upd-30-1",
+          "price": 1061,
+          "region": "US"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r22",
+          "name": "upd-31-0",
+          "price": 1062,
+          "region": "US"
+        },
+        {
+          "id": "r35",
+          "name": "upd-31-1",
+          "price": 1063,
+          "region": "APAC"
+        }
+      ],
+      "removeIds": [
+        "r33"
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r38",
+          "name": "upd-32-0",
+          "price": 1064,
+          "region": "APAC"
+        },
+        {
+          "id": "r7",
+          "name": "upd-32-1",
+          "price": 1065,
+          "region": "US"
+        }
+      ],
+      "add": [
+        {
+          "id": "a6",
+          "name": "live-add-6",
+          "price": 332,
+          "region": "US"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "a1",
+          "name": "upd-33-0",
+          "price": 1066,
+          "region": "US"
+        },
+        {
+          "id": "r8",
+          "name": "upd-33-1",
+          "price": 1067,
+          "region": "APAC"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r1",
+          "name": "upd-34-0",
+          "price": 1068,
+          "region": "US"
+        },
+        {
+          "id": "r17",
+          "name": "upd-34-1",
+          "price": 1069,
+          "region": "APAC"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r9",
+          "name": "upd-35-0",
+          "price": 1070,
+          "region": "EU"
+        },
+        {
+          "id": "r24",
+          "name": "upd-35-1",
+          "price": 1071,
+          "region": "EU"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r18",
+          "name": "upd-36-0",
+          "price": 1072,
+          "region": "EU"
+        },
+        {
+          "id": "r31",
+          "name": "upd-36-1",
+          "price": 1073,
+          "region": "US"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r25",
+          "name": "upd-37-0",
+          "price": 1074,
+          "region": "US"
+        },
+        {
+          "id": "r39",
+          "name": "upd-37-1",
+          "price": 1075,
+          "region": "EU"
+        }
+      ],
+      "add": [
+        {
+          "id": "a7",
+          "name": "live-add-7",
+          "price": 369,
+          "region": "APAC"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r26",
+          "name": "upd-38-0",
+          "price": 1076,
+          "region": "APAC"
+        },
+        {
+          "id": "a1",
+          "name": "upd-38-1",
+          "price": 1077,
+          "region": "US"
+        }
+      ],
+      "removeIds": [
+        "r22"
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "a5",
+          "name": "upd-39-0",
+          "price": 1078,
+          "region": "APAC"
+        },
+        {
+          "id": "r12",
+          "name": "upd-39-1",
+          "price": 1079,
+          "region": "EU"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r5",
+          "name": "upd-40-0",
+          "price": 1080,
+          "region": "APAC"
+        },
+        {
+          "id": "r20",
+          "name": "upd-40-1",
+          "price": 1081,
+          "region": "APAC"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r13",
+          "name": "upd-41-0",
+          "price": 1082,
+          "region": "US"
+        },
+        {
+          "id": "r28",
+          "name": "upd-41-1",
+          "price": 1083,
+          "region": "US"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r21",
+          "name": "upd-42-0",
+          "price": 1084,
+          "region": "EU"
+        },
+        {
+          "id": "r36",
+          "name": "upd-42-1",
+          "price": 1085,
+          "region": "EU"
+        }
+      ],
+      "add": [
+        {
+          "id": "a8",
+          "name": "live-add-8",
+          "price": 406,
+          "region": "EU"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r21",
+          "name": "upd-43-0",
+          "price": 1086,
+          "region": "EU"
+        },
+        {
+          "id": "r36",
+          "name": "upd-43-1",
+          "price": 1087,
+          "region": "EU"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r29",
+          "name": "upd-44-0",
+          "price": 1088,
+          "region": "APAC"
+        },
+        {
+          "id": "a4",
+          "name": "upd-44-1",
+          "price": 1089,
+          "region": "US"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r37",
+          "name": "upd-45-0",
+          "price": 1090,
+          "region": "US"
+        },
+        {
+          "id": "r2",
+          "name": "upd-45-1",
+          "price": 1091,
+          "region": "APAC"
+        }
+      ],
+      "removeIds": [
+        "r13"
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r8",
+          "name": "upd-46-0",
+          "price": 1092,
+          "region": "APAC"
+        },
+        {
+          "id": "r25",
+          "name": "upd-46-1",
+          "price": 1093,
+          "region": "US"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r18",
+          "name": "upd-47-0",
+          "price": 1094,
+          "region": "EU"
+        },
+        {
+          "id": "r32",
+          "name": "upd-47-1",
+          "price": 1095,
+          "region": "APAC"
+        }
+      ],
+      "add": [
+        {
+          "id": "a9",
+          "name": "live-add-9",
+          "price": 43,
+          "region": "US"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r17",
+          "name": "upd-48-0",
+          "price": 1096,
+          "region": "APAC"
+        },
+        {
+          "id": "r31",
+          "name": "upd-48-1",
+          "price": 1097,
+          "region": "US"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r25",
+          "name": "upd-49-0",
+          "price": 1098,
+          "region": "US"
+        },
+        {
+          "id": "r39",
+          "name": "upd-49-1",
+          "price": 1099,
+          "region": "EU"
+        }
+      ]
+    }
+  ],
+  "expected": {
+    "rowCount": 43,
+    "rowIds": [
+      "r0",
+      "r1",
+      "r2",
+      "r4",
+      "r5",
+      "r6",
+      "r7",
+      "r8",
+      "r9",
+      "r11",
+      "r12",
+      "r14",
+      "r15",
+      "r17",
+      "r18",
+      "r19",
+      "r20",
+      "r21",
+      "r23",
+      "r24",
+      "r25",
+      "r26",
+      "r27",
+      "r28",
+      "r29",
+      "r30",
+      "r31",
+      "r32",
+      "r34",
+      "r35",
+      "r36",
+      "r37",
+      "r38",
+      "r39",
+      "a1",
+      "a2",
+      "a3",
+      "a4",
+      "a5",
+      "a6",
+      "a7",
+      "a8",
+      "a9"
+    ],
+    "selectedIds": [
+      "r17",
+      "r29"
+    ]
+  }
+}

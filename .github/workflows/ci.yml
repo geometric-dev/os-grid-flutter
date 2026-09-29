@@ -1,0 +1,133 @@
+name: CI
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+
+jobs:
+    analyze-and-test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - uses: subosito/flutter-action@v2
+              with:
+                  channel: stable
+
+            - name: Install dependencies
+              run: flutter pub get
+
+            - name: Verify formatting
+              run: dart format --output=none --set-exit-if-changed .
+
+            - name: Analyze project source
+              run: flutter analyze --fatal-infos
+
+            - name: Run tests
+              run: flutter test
+
+            # Golden failures (expected/actual/diff triptychs) land in
+            # test/goldens/failures/ when a matchesGoldenFile comparison
+            # fails; upload them for inspection. Skipped when the run did
+            # not fail or no golden mismatch was recorded.
+            - name: Check for golden failures
+              id: golden-failures
+              if: failure()
+              run: |
+                  if [ -d test/goldens/failures ] && [ -n "$(ls -A test/goldens/failures)" ]; then
+                      echo "found=true" >> "$GITHUB_OUTPUT"
+                  fi
+
+            - name: Upload golden failure artifacts
+              if: failure() && steps.golden-failures.outputs.found == 'true'
+              uses: actions/upload-artifact@v4
+              with:
+                  name: golden-failures-${{ github.run_id }}
+                  path: test/goldens/failures/
+                  retention-days: 7
+
+    test-example:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - uses: subosito/flutter-action@v2
+              with:
+                  channel: stable
+
+            - name: Install dependencies
+              run: flutter pub get
+              working-directory: example
+
+            - name: Analyze example
+              run: flutter analyze --fatal-infos
+              working-directory: example
+
+    test-charts:
+        # The os_grid_flutter_charts companion package (fl_chart / graphic
+        # renderers behind the core OsChartRenderer interface).
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - uses: subosito/flutter-action@v2
+              with:
+                  channel: stable
+
+            - name: Install dependencies
+              run: flutter pub get
+              working-directory: packages/os_grid_flutter_charts
+
+            - name: Verify formatting
+              run: dart format --output=none --set-exit-if-changed .
+              working-directory: packages/os_grid_flutter_charts
+
+            - name: Analyze companion package
+              run: flutter analyze --fatal-infos
+              working-directory: packages/os_grid_flutter_charts
+
+            - name: Test companion package
+              run: flutter test
+              working-directory: packages/os_grid_flutter_charts
+
+            - name: Install dependencies
+              run: flutter pub get
+              working-directory: packages/os_grid_flutter_charts/example
+
+            - name: Analyze companion example
+              run: flutter analyze --fatal-infos
+              working-directory: packages/os_grid_flutter_charts/example
+
+    perf-budget:
+        # Frame-time profiling harness (quality program v3 item 21). The suite
+        # is skipped by default; this job force-enables it via OS_GRID_BENCH=1.
+        # Absolute budgets live in test/bench_frame_budget_test.dart and are
+        # the hard gate. p95 values more than 20% above the committed
+        # test/bench_baseline.json print WARNINGs in the log without failing.
+        runs-on: ubuntu-latest
+        timeout-minutes: 30
+        steps:
+            - uses: actions/checkout@v4
+
+            - uses: subosito/flutter-action@v2
+              with:
+                  channel: stable
+
+            - name: Install dependencies
+              run: flutter pub get
+
+            - name: Run bench (scroll, cold start, edit burst, transaction storm, filter typing, column resize)
+              env:
+                  OS_GRID_BENCH: '1'
+                  OS_GRID_BENCH_OUTPUT: bench_results.json
+              run: flutter test test/bench_frame_budget_test.dart
+
+            - name: Upload bench report
+              if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: bench-results-${{ github.run_id }}
+                  path: bench_results.json
+                  retention-days: 14

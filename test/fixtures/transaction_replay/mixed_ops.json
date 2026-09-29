@@ -1,0 +1,290 @@
+{
+  "name": "mixed-ops",
+  "description": "Mixed operations: adds, updates, removes and selection changes interleaved, including a select-then-remove, a deselectAll, an addIndex insert and a re-add of a removed id.",
+  "initialRows": [
+    {
+      "id": "r0",
+      "name": "Row 0",
+      "price": 10,
+      "region": "EU"
+    },
+    {
+      "id": "r1",
+      "name": "Row 1",
+      "price": 47,
+      "region": "US"
+    },
+    {
+      "id": "r2",
+      "name": "Row 2",
+      "price": 84,
+      "region": "APAC"
+    },
+    {
+      "id": "r3",
+      "name": "Row 3",
+      "price": 121,
+      "region": "EU"
+    },
+    {
+      "id": "r4",
+      "name": "Row 4",
+      "price": 158,
+      "region": "US"
+    },
+    {
+      "id": "r5",
+      "name": "Row 5",
+      "price": 195,
+      "region": "APAC"
+    },
+    {
+      "id": "r6",
+      "name": "Row 6",
+      "price": 232,
+      "region": "EU"
+    },
+    {
+      "id": "r7",
+      "name": "Row 7",
+      "price": 269,
+      "region": "US"
+    },
+    {
+      "id": "r8",
+      "name": "Row 8",
+      "price": 306,
+      "region": "APAC"
+    },
+    {
+      "id": "r9",
+      "name": "Row 9",
+      "price": 343,
+      "region": "EU"
+    },
+    {
+      "id": "r10",
+      "name": "Row 10",
+      "price": 380,
+      "region": "US"
+    },
+    {
+      "id": "r11",
+      "name": "Row 11",
+      "price": 17,
+      "region": "APAC"
+    }
+  ],
+  "initialSelection": [
+    "r4"
+  ],
+  "steps": [
+    {
+      "op": "select",
+      "ids": [
+        "r2",
+        "r6"
+      ]
+    },
+    {
+      "op": "transaction",
+      "add": [
+        {
+          "id": "x0",
+          "name": "mixed-add-0",
+          "price": 230,
+          "region": "EU"
+        },
+        {
+          "id": "x1",
+          "name": "mixed-add-1",
+          "price": 267,
+          "region": "US"
+        }
+      ],
+      "addIndex": 0,
+      "update": [
+        {
+          "id": "r1",
+          "name": "mixed-upd-1",
+          "price": 777,
+          "region": "EU"
+        }
+      ],
+      "removeIds": [
+        "r2"
+      ]
+    },
+    {
+      "op": "select",
+      "ids": [
+        "x0"
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "x0",
+          "name": "mixed-upd-x0",
+          "price": 888,
+          "region": "US"
+        }
+      ],
+      "removeIds": [
+        "r5"
+      ]
+    },
+    {
+      "op": "deselect",
+      "ids": [
+        "x0"
+      ]
+    },
+    {
+      "op": "transaction",
+      "add": [
+        {
+          "id": "x2",
+          "name": "mixed-add-2",
+          "price": 304,
+          "region": "APAC"
+        },
+        {
+          "id": "x3",
+          "name": "mixed-add-3",
+          "price": 341,
+          "region": "EU"
+        },
+        {
+          "id": "x4",
+          "name": "mixed-add-4",
+          "price": 378,
+          "region": "US"
+        }
+      ]
+    },
+    {
+      "op": "select",
+      "ids": [
+        "r7",
+        "r9"
+      ]
+    },
+    {
+      "op": "transaction",
+      "removeIds": [
+        "r7"
+      ]
+    },
+    {
+      "op": "deselectAll"
+    },
+    {
+      "op": "transaction",
+      "add": [
+        {
+          "id": "x5",
+          "name": "mixed-add-5",
+          "price": 15,
+          "region": "APAC"
+        }
+      ],
+      "addIndex": 2,
+      "update": [
+        {
+          "id": "r0",
+          "name": "mixed-upd-0",
+          "price": 999,
+          "region": "APAC"
+        }
+      ],
+      "removeIds": [
+        "r10"
+      ]
+    },
+    {
+      "op": "select",
+      "ids": [
+        "x5"
+      ]
+    },
+    {
+      "op": "transaction",
+      "update": [
+        {
+          "id": "r3",
+          "name": "mixed-upd-3",
+          "price": 111,
+          "region": "EU"
+        },
+        {
+          "id": "x1",
+          "name": "mixed-upd-x1",
+          "price": 222,
+          "region": "US"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "add": [
+        {
+          "id": "r5",
+          "name": "mixed-readd-5",
+          "price": 555,
+          "region": "EU"
+        }
+      ]
+    }
+  ],
+  "expected": {
+    "rowCount": 15,
+    "rowIds": [
+      "x0",
+      "x1",
+      "x5",
+      "r0",
+      "r1",
+      "r3",
+      "r4",
+      "r6",
+      "r8",
+      "r9",
+      "r11",
+      "x2",
+      "x3",
+      "x4",
+      "r5"
+    ],
+    "selectedIds": [
+      "x5"
+    ],
+    "fieldChecks": {
+      "r0": {
+        "name": "mixed-upd-0",
+        "price": 999
+      },
+      "r1": {
+        "name": "mixed-upd-1",
+        "price": 777
+      },
+      "x0": {
+        "name": "mixed-upd-x0",
+        "price": 888
+      },
+      "r3": {
+        "name": "mixed-upd-3",
+        "price": 111
+      },
+      "x1": {
+        "name": "mixed-upd-x1",
+        "price": 222
+      },
+      "r5": {
+        "name": "mixed-readd-5",
+        "price": 555
+      }
+    }
+  }
+}

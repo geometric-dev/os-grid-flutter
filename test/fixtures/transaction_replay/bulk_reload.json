@@ -1,0 +1,985 @@
+{
+  "name": "bulk-reload",
+  "description": "Bulk reload: one large remove-all + add-all transaction followed by three incremental add transactions.",
+  "initialRows": [
+    {
+      "id": "r0",
+      "name": "Row 0",
+      "price": 10,
+      "region": "EU"
+    },
+    {
+      "id": "r1",
+      "name": "Row 1",
+      "price": 47,
+      "region": "US"
+    },
+    {
+      "id": "r2",
+      "name": "Row 2",
+      "price": 84,
+      "region": "APAC"
+    },
+    {
+      "id": "r3",
+      "name": "Row 3",
+      "price": 121,
+      "region": "EU"
+    },
+    {
+      "id": "r4",
+      "name": "Row 4",
+      "price": 158,
+      "region": "US"
+    },
+    {
+      "id": "r5",
+      "name": "Row 5",
+      "price": 195,
+      "region": "APAC"
+    },
+    {
+      "id": "r6",
+      "name": "Row 6",
+      "price": 232,
+      "region": "EU"
+    },
+    {
+      "id": "r7",
+      "name": "Row 7",
+      "price": 269,
+      "region": "US"
+    },
+    {
+      "id": "r8",
+      "name": "Row 8",
+      "price": 306,
+      "region": "APAC"
+    },
+    {
+      "id": "r9",
+      "name": "Row 9",
+      "price": 343,
+      "region": "EU"
+    },
+    {
+      "id": "r10",
+      "name": "Row 10",
+      "price": 380,
+      "region": "US"
+    },
+    {
+      "id": "r11",
+      "name": "Row 11",
+      "price": 17,
+      "region": "APAC"
+    },
+    {
+      "id": "r12",
+      "name": "Row 12",
+      "price": 54,
+      "region": "EU"
+    },
+    {
+      "id": "r13",
+      "name": "Row 13",
+      "price": 91,
+      "region": "US"
+    },
+    {
+      "id": "r14",
+      "name": "Row 14",
+      "price": 128,
+      "region": "APAC"
+    },
+    {
+      "id": "r15",
+      "name": "Row 15",
+      "price": 165,
+      "region": "EU"
+    },
+    {
+      "id": "r16",
+      "name": "Row 16",
+      "price": 202,
+      "region": "US"
+    },
+    {
+      "id": "r17",
+      "name": "Row 17",
+      "price": 239,
+      "region": "APAC"
+    },
+    {
+      "id": "r18",
+      "name": "Row 18",
+      "price": 276,
+      "region": "EU"
+    },
+    {
+      "id": "r19",
+      "name": "Row 19",
+      "price": 313,
+      "region": "US"
+    },
+    {
+      "id": "r20",
+      "name": "Row 20",
+      "price": 350,
+      "region": "APAC"
+    },
+    {
+      "id": "r21",
+      "name": "Row 21",
+      "price": 387,
+      "region": "EU"
+    },
+    {
+      "id": "r22",
+      "name": "Row 22",
+      "price": 24,
+      "region": "US"
+    },
+    {
+      "id": "r23",
+      "name": "Row 23",
+      "price": 61,
+      "region": "APAC"
+    },
+    {
+      "id": "r24",
+      "name": "Row 24",
+      "price": 98,
+      "region": "EU"
+    },
+    {
+      "id": "r25",
+      "name": "Row 25",
+      "price": 135,
+      "region": "US"
+    },
+    {
+      "id": "r26",
+      "name": "Row 26",
+      "price": 172,
+      "region": "APAC"
+    },
+    {
+      "id": "r27",
+      "name": "Row 27",
+      "price": 209,
+      "region": "EU"
+    },
+    {
+      "id": "r28",
+      "name": "Row 28",
+      "price": 246,
+      "region": "US"
+    },
+    {
+      "id": "r29",
+      "name": "Row 29",
+      "price": 283,
+      "region": "APAC"
+    },
+    {
+      "id": "r30",
+      "name": "Row 30",
+      "price": 320,
+      "region": "EU"
+    },
+    {
+      "id": "r31",
+      "name": "Row 31",
+      "price": 357,
+      "region": "US"
+    },
+    {
+      "id": "r32",
+      "name": "Row 32",
+      "price": 394,
+      "region": "APAC"
+    },
+    {
+      "id": "r33",
+      "name": "Row 33",
+      "price": 31,
+      "region": "EU"
+    },
+    {
+      "id": "r34",
+      "name": "Row 34",
+      "price": 68,
+      "region": "US"
+    },
+    {
+      "id": "r35",
+      "name": "Row 35",
+      "price": 105,
+      "region": "APAC"
+    },
+    {
+      "id": "r36",
+      "name": "Row 36",
+      "price": 142,
+      "region": "EU"
+    },
+    {
+      "id": "r37",
+      "name": "Row 37",
+      "price": 179,
+      "region": "US"
+    },
+    {
+      "id": "r38",
+      "name": "Row 38",
+      "price": 216,
+      "region": "APAC"
+    },
+    {
+      "id": "r39",
+      "name": "Row 39",
+      "price": 253,
+      "region": "EU"
+    },
+    {
+      "id": "r40",
+      "name": "Row 40",
+      "price": 290,
+      "region": "US"
+    },
+    {
+      "id": "r41",
+      "name": "Row 41",
+      "price": 327,
+      "region": "APAC"
+    },
+    {
+      "id": "r42",
+      "name": "Row 42",
+      "price": 364,
+      "region": "EU"
+    },
+    {
+      "id": "r43",
+      "name": "Row 43",
+      "price": 401,
+      "region": "US"
+    },
+    {
+      "id": "r44",
+      "name": "Row 44",
+      "price": 38,
+      "region": "APAC"
+    },
+    {
+      "id": "r45",
+      "name": "Row 45",
+      "price": 75,
+      "region": "EU"
+    },
+    {
+      "id": "r46",
+      "name": "Row 46",
+      "price": 112,
+      "region": "US"
+    },
+    {
+      "id": "r47",
+      "name": "Row 47",
+      "price": 149,
+      "region": "APAC"
+    },
+    {
+      "id": "r48",
+      "name": "Row 48",
+      "price": 186,
+      "region": "EU"
+    },
+    {
+      "id": "r49",
+      "name": "Row 49",
+      "price": 223,
+      "region": "US"
+    },
+    {
+      "id": "r50",
+      "name": "Row 50",
+      "price": 260,
+      "region": "APAC"
+    },
+    {
+      "id": "r51",
+      "name": "Row 51",
+      "price": 297,
+      "region": "EU"
+    },
+    {
+      "id": "r52",
+      "name": "Row 52",
+      "price": 334,
+      "region": "US"
+    },
+    {
+      "id": "r53",
+      "name": "Row 53",
+      "price": 371,
+      "region": "APAC"
+    },
+    {
+      "id": "r54",
+      "name": "Row 54",
+      "price": 408,
+      "region": "EU"
+    },
+    {
+      "id": "r55",
+      "name": "Row 55",
+      "price": 45,
+      "region": "US"
+    },
+    {
+      "id": "r56",
+      "name": "Row 56",
+      "price": 82,
+      "region": "APAC"
+    },
+    {
+      "id": "r57",
+      "name": "Row 57",
+      "price": 119,
+      "region": "EU"
+    },
+    {
+      "id": "r58",
+      "name": "Row 58",
+      "price": 156,
+      "region": "US"
+    },
+    {
+      "id": "r59",
+      "name": "Row 59",
+      "price": 193,
+      "region": "APAC"
+    }
+  ],
+  "initialSelection": [
+    "r5",
+    "r45"
+  ],
+  "steps": [
+    {
+      "op": "transaction",
+      "removeIds": [
+        "r0",
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "r6",
+        "r7",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12",
+        "r13",
+        "r14",
+        "r15",
+        "r16",
+        "r17",
+        "r18",
+        "r19",
+        "r20",
+        "r21",
+        "r22",
+        "r23",
+        "r24",
+        "r25",
+        "r26",
+        "r27",
+        "r28",
+        "r29",
+        "r30",
+        "r31",
+        "r32",
+        "r33",
+        "r34",
+        "r35",
+        "r36",
+        "r37",
+        "r38",
+        "r39",
+        "r40",
+        "r41",
+        "r42",
+        "r43",
+        "r44",
+        "r45",
+        "r46",
+        "r47",
+        "r48",
+        "r49",
+        "r50",
+        "r51",
+        "r52",
+        "r53",
+        "r54",
+        "r55",
+        "r56",
+        "r57",
+        "r58",
+        "r59"
+      ],
+      "add": [
+        {
+          "id": "n0",
+          "name": "reloaded-0",
+          "price": 210,
+          "region": "APAC"
+        },
+        {
+          "id": "n1",
+          "name": "reloaded-1",
+          "price": 247,
+          "region": "EU"
+        },
+        {
+          "id": "n2",
+          "name": "reloaded-2",
+          "price": 284,
+          "region": "US"
+        },
+        {
+          "id": "n3",
+          "name": "reloaded-3",
+          "price": 321,
+          "region": "APAC"
+        },
+        {
+          "id": "n4",
+          "name": "reloaded-4",
+          "price": 358,
+          "region": "EU"
+        },
+        {
+          "id": "n5",
+          "name": "reloaded-5",
+          "price": 395,
+          "region": "US"
+        },
+        {
+          "id": "n6",
+          "name": "reloaded-6",
+          "price": 32,
+          "region": "APAC"
+        },
+        {
+          "id": "n7",
+          "name": "reloaded-7",
+          "price": 69,
+          "region": "EU"
+        },
+        {
+          "id": "n8",
+          "name": "reloaded-8",
+          "price": 106,
+          "region": "US"
+        },
+        {
+          "id": "n9",
+          "name": "reloaded-9",
+          "price": 143,
+          "region": "APAC"
+        },
+        {
+          "id": "n10",
+          "name": "reloaded-10",
+          "price": 180,
+          "region": "EU"
+        },
+        {
+          "id": "n11",
+          "name": "reloaded-11",
+          "price": 217,
+          "region": "US"
+        },
+        {
+          "id": "n12",
+          "name": "reloaded-12",
+          "price": 254,
+          "region": "APAC"
+        },
+        {
+          "id": "n13",
+          "name": "reloaded-13",
+          "price": 291,
+          "region": "EU"
+        },
+        {
+          "id": "n14",
+          "name": "reloaded-14",
+          "price": 328,
+          "region": "US"
+        },
+        {
+          "id": "n15",
+          "name": "reloaded-15",
+          "price": 365,
+          "region": "APAC"
+        },
+        {
+          "id": "n16",
+          "name": "reloaded-16",
+          "price": 402,
+          "region": "EU"
+        },
+        {
+          "id": "n17",
+          "name": "reloaded-17",
+          "price": 39,
+          "region": "US"
+        },
+        {
+          "id": "n18",
+          "name": "reloaded-18",
+          "price": 76,
+          "region": "APAC"
+        },
+        {
+          "id": "n19",
+          "name": "reloaded-19",
+          "price": 113,
+          "region": "EU"
+        },
+        {
+          "id": "n20",
+          "name": "reloaded-20",
+          "price": 150,
+          "region": "US"
+        },
+        {
+          "id": "n21",
+          "name": "reloaded-21",
+          "price": 187,
+          "region": "APAC"
+        },
+        {
+          "id": "n22",
+          "name": "reloaded-22",
+          "price": 224,
+          "region": "EU"
+        },
+        {
+          "id": "n23",
+          "name": "reloaded-23",
+          "price": 261,
+          "region": "US"
+        },
+        {
+          "id": "n24",
+          "name": "reloaded-24",
+          "price": 298,
+          "region": "APAC"
+        },
+        {
+          "id": "n25",
+          "name": "reloaded-25",
+          "price": 335,
+          "region": "EU"
+        },
+        {
+          "id": "n26",
+          "name": "reloaded-26",
+          "price": 372,
+          "region": "US"
+        },
+        {
+          "id": "n27",
+          "name": "reloaded-27",
+          "price": 409,
+          "region": "APAC"
+        },
+        {
+          "id": "n28",
+          "name": "reloaded-28",
+          "price": 46,
+          "region": "EU"
+        },
+        {
+          "id": "n29",
+          "name": "reloaded-29",
+          "price": 83,
+          "region": "US"
+        },
+        {
+          "id": "n30",
+          "name": "reloaded-30",
+          "price": 120,
+          "region": "APAC"
+        },
+        {
+          "id": "n31",
+          "name": "reloaded-31",
+          "price": 157,
+          "region": "EU"
+        },
+        {
+          "id": "n32",
+          "name": "reloaded-32",
+          "price": 194,
+          "region": "US"
+        },
+        {
+          "id": "n33",
+          "name": "reloaded-33",
+          "price": 231,
+          "region": "APAC"
+        },
+        {
+          "id": "n34",
+          "name": "reloaded-34",
+          "price": 268,
+          "region": "EU"
+        },
+        {
+          "id": "n35",
+          "name": "reloaded-35",
+          "price": 305,
+          "region": "US"
+        },
+        {
+          "id": "n36",
+          "name": "reloaded-36",
+          "price": 342,
+          "region": "APAC"
+        },
+        {
+          "id": "n37",
+          "name": "reloaded-37",
+          "price": 379,
+          "region": "EU"
+        },
+        {
+          "id": "n38",
+          "name": "reloaded-38",
+          "price": 16,
+          "region": "US"
+        },
+        {
+          "id": "n39",
+          "name": "reloaded-39",
+          "price": 53,
+          "region": "APAC"
+        },
+        {
+          "id": "n40",
+          "name": "reloaded-40",
+          "price": 90,
+          "region": "EU"
+        },
+        {
+          "id": "n41",
+          "name": "reloaded-41",
+          "price": 127,
+          "region": "US"
+        },
+        {
+          "id": "n42",
+          "name": "reloaded-42",
+          "price": 164,
+          "region": "APAC"
+        },
+        {
+          "id": "n43",
+          "name": "reloaded-43",
+          "price": 201,
+          "region": "EU"
+        },
+        {
+          "id": "n44",
+          "name": "reloaded-44",
+          "price": 238,
+          "region": "US"
+        },
+        {
+          "id": "n45",
+          "name": "reloaded-45",
+          "price": 275,
+          "region": "APAC"
+        },
+        {
+          "id": "n46",
+          "name": "reloaded-46",
+          "price": 312,
+          "region": "EU"
+        },
+        {
+          "id": "n47",
+          "name": "reloaded-47",
+          "price": 349,
+          "region": "US"
+        },
+        {
+          "id": "n48",
+          "name": "reloaded-48",
+          "price": 386,
+          "region": "APAC"
+        },
+        {
+          "id": "n49",
+          "name": "reloaded-49",
+          "price": 23,
+          "region": "EU"
+        },
+        {
+          "id": "n50",
+          "name": "reloaded-50",
+          "price": 60,
+          "region": "US"
+        },
+        {
+          "id": "n51",
+          "name": "reloaded-51",
+          "price": 97,
+          "region": "APAC"
+        },
+        {
+          "id": "n52",
+          "name": "reloaded-52",
+          "price": 134,
+          "region": "EU"
+        },
+        {
+          "id": "n53",
+          "name": "reloaded-53",
+          "price": 171,
+          "region": "US"
+        },
+        {
+          "id": "n54",
+          "name": "reloaded-54",
+          "price": 208,
+          "region": "APAC"
+        },
+        {
+          "id": "n55",
+          "name": "reloaded-55",
+          "price": 245,
+          "region": "EU"
+        },
+        {
+          "id": "n56",
+          "name": "reloaded-56",
+          "price": 282,
+          "region": "US"
+        },
+        {
+          "id": "n57",
+          "name": "reloaded-57",
+          "price": 319,
+          "region": "APAC"
+        },
+        {
+          "id": "n58",
+          "name": "reloaded-58",
+          "price": 356,
+          "region": "EU"
+        },
+        {
+          "id": "n59",
+          "name": "reloaded-59",
+          "price": 393,
+          "region": "US"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "add": [
+        {
+          "id": "n60",
+          "name": "post-reload-0",
+          "price": 310,
+          "region": "EU"
+        },
+        {
+          "id": "n61",
+          "name": "post-reload-1",
+          "price": 347,
+          "region": "US"
+        },
+        {
+          "id": "n62",
+          "name": "post-reload-2",
+          "price": 384,
+          "region": "APAC"
+        },
+        {
+          "id": "n63",
+          "name": "post-reload-3",
+          "price": 21,
+          "region": "EU"
+        },
+        {
+          "id": "n64",
+          "name": "post-reload-4",
+          "price": 58,
+          "region": "US"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "add": [
+        {
+          "id": "n65",
+          "name": "post-reload-b-0",
+          "price": 10,
+          "region": "US"
+        },
+        {
+          "id": "n66",
+          "name": "post-reload-b-1",
+          "price": 47,
+          "region": "APAC"
+        },
+        {
+          "id": "n67",
+          "name": "post-reload-b-2",
+          "price": 84,
+          "region": "EU"
+        },
+        {
+          "id": "n68",
+          "name": "post-reload-b-3",
+          "price": 121,
+          "region": "US"
+        },
+        {
+          "id": "n69",
+          "name": "post-reload-b-4",
+          "price": 158,
+          "region": "APAC"
+        }
+      ]
+    },
+    {
+      "op": "transaction",
+      "add": [
+        {
+          "id": "n70",
+          "name": "post-reload-c-0",
+          "price": 110,
+          "region": "APAC"
+        },
+        {
+          "id": "n71",
+          "name": "post-reload-c-1",
+          "price": 147,
+          "region": "EU"
+        },
+        {
+          "id": "n72",
+          "name": "post-reload-c-2",
+          "price": 184,
+          "region": "US"
+        },
+        {
+          "id": "n73",
+          "name": "post-reload-c-3",
+          "price": 221,
+          "region": "APAC"
+        },
+        {
+          "id": "n74",
+          "name": "post-reload-c-4",
+          "price": 258,
+          "region": "EU"
+        }
+      ]
+    }
+  ],
+  "expected": {
+    "rowCount": 75,
+    "rowIds": [
+      "n0",
+      "n1",
+      "n2",
+      "n3",
+      "n4",
+      "n5",
+      "n6",
+      "n7",
+      "n8",
+      "n9",
+      "n10",
+      "n11",
+      "n12",
+      "n13",
+      "n14",
+      "n15",
+      "n16",
+      "n17",
+      "n18",
+      "n19",
+      "n20",
+      "n21",
+      "n22",
+      "n23",
+      "n24",
+      "n25",
+      "n26",
+      "n27",
+      "n28",
+      "n29",
+      "n30",
+      "n31",
+      "n32",
+      "n33",
+      "n34",
+      "n35",
+      "n36",
+      "n37",
+      "n38",
+      "n39",
+      "n40",
+      "n41",
+      "n42",
+      "n43",
+      "n44",
+      "n45",
+      "n46",
+      "n47",
+      "n48",
+      "n49",
+      "n50",
+      "n51",
+      "n52",
+      "n53",
+      "n54",
+      "n55",
+      "n56",
+      "n57",
+      "n58",
+      "n59",
+      "n60",
+      "n61",
+      "n62",
+      "n63",
+      "n64",
+      "n65",
+      "n66",
+      "n67",
+      "n68",
+      "n69",
+      "n70",
+      "n71",
+      "n72",
+      "n73",
+      "n74"
+    ],
+    "selectedIds": []
+  }
+}

@@ -1,0 +1,36 @@
+name: os_grid_flutter
+description: A high-performance, feature-rich data grid for Flutter. Open-source native implementation for desktop and mobile platforms.
+version: 1.0.0
+homepage: https://github.com/geometric-dev/os-grid-flutter
+repository: https://github.com/geometric-dev/os-grid-flutter
+issue_tracker: https://github.com/geometric-dev/os-grid-flutter/issues
+topics:
+  - datagrid
+  - table
+  - grid
+  - data
+  - ui
+
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:
+
+environment:
+  sdk: ^3.11.0
+  flutter: ">=3.41.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  # No assets or fonts yet

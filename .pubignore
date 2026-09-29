@@ -1,0 +1,40 @@
+# Files excluded from the published archive.
+#
+# A .pubignore file REPLACES .gitignore for packaging (it is not merged with
+# it), so every rule that matters to the archive has to be restated here.
+# Keep this file in sync with .gitignore.
+
+# Dart/Flutter build output
+.dart_tool/
+.packages
+build/
+pubspec.lock
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Coverage
+coverage/
+
+# Generated
+*.g.dart
+
+# The optional os_grid_flutter_charts companion is developed and tested in
+# this repository but is not published alongside the core package, so its
+# sources (and their path dependency back to the core) have no place in the
+# published archive.
+packages/
+
+# Local-only reference demos
+/demos/
+
+# Golden failure artifacts from a local test run
+test/goldens/failures/

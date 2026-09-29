@@ -1,0 +1,45 @@
+{
+  "note": "Frame-time profiling harness baselines (wall-clock ms, widget-test renderer) committed with quality program v3 item 21. p95 more than 20% above these values prints a WARNING when the bench runs (OS_GRID_BENCH=1) but does not fail CI — the absolute budgets in test/bench_frame_budget_test.dart are the hard gate. Regenerate from a quiet machine via OS_GRID_BENCH=1 + OS_GRID_BENCH_OUTPUT=<path> and replace the scenario entries with the measured mean/p50/p95.",
+  "regressionThresholdPct": 20,
+  "scenarios": {
+    "scroll": {
+      "mean": 46.08,
+      "p50": 37.49,
+      "p95": 87.21
+    },
+    "cold-start": {
+      "mean": 272.22,
+      "p50": 272.55,
+      "p95": 278.18
+    },
+    "edit-burst": {
+      "mean": 88.18,
+      "p50": 75.06,
+      "p95": 107.85
+    },
+    "transaction-storm": {
+      "mean": 1236.63,
+      "p50": 1214.32,
+      "p95": 1434.5
+    },
+    "filter-typing": {
+      "mean": 252.26,
+      "p50": 222.05,
+      "p95": 373.74
+    },
+    "column-resize": {
+      "mean": 5.99,
+      "p50": 3.18,
+      "p95": 23.4
+    }
+  },
+  "informationalNote": "Informational scenarios (quality program v3 item 30) have NO budget and NO warning threshold — these entries are process-dependent trend data only (RSS delta includes the row data itself and garbage from prior scenarios when the full suite runs; firstFrameMs is the mean over 3 runs). Measured on the reference machine with only the informational scenarios enabled.",
+  "informational": {
+    "memory-100k": {
+      "rssDeltaMb": 72.22
+    },
+    "startup-10k": {
+      "firstFrameMs": 59.19
+    }
+  }
+}
