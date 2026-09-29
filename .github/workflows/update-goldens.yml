@@ -28,7 +28,10 @@ jobs:
         run: flutter pub get
 
       - name: Regenerate golden baselines
-        run: flutter test test/goldens --update-goldens
+        # Tag-driven rather than a path: golden tests do not all live under
+        # test/goldens/ (the avatar goldens sit in test/avatar_renderer_test.dart),
+        # and a path would silently skip any new golden suite.
+        run: flutter test --tags golden --update-goldens
 
       - name: Upload regenerated goldens
         if: always()
