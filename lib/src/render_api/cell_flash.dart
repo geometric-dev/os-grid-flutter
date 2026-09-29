@@ -118,7 +118,8 @@ class CellFlashState {
   /// Which cell is flashing.
   final CellPosition position;
 
-  /// When the flash was initiated (from [Stopwatch] elapsed).
+  /// When the flash was initiated, in the animation clock's time base (the
+  /// ticker's elapsed time — see `CellFlashCoordinator`).
   final Duration startTime;
 
   /// How long the full-opacity highlight lasts.

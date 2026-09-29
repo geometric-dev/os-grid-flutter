@@ -12,6 +12,11 @@ import 'cell_flash.dart';
 /// so flash animation advances in lock-step with the display's vsync cadence
 /// and automatically pauses when no flashes are active or when the widget
 /// tree is disabled via TickerMode.
+///
+/// The animation clock is the [Ticker]'s own elapsed time rather than a
+/// wall-clock [Stopwatch]: the two agree in production, but only the ticker's
+/// clock advances with the frames a test pumps, which is what makes flash
+/// timing deterministic under `WidgetTester.pump`.
 class CellFlashCoordinator {
   /// Creates a coordinator.
   ///
@@ -39,7 +44,9 @@ class CellFlashCoordinator {
   /// Active flash states keyed by cell position (read by the painter).
   final Map<CellPosition, CellFlashState> flashes = {};
 
-  final Stopwatch _stopwatch = Stopwatch();
+  /// Animation time published by the last tick, and the reference point for
+  /// a flash started between ticks. Kept in the ticker's time base so
+  /// `startTime` and `opacityAt` are always read from the same clock.
   Duration _elapsed = Duration.zero;
 
   /// Current elapsed time for in-flight flash animations (read by painter).
@@ -71,12 +78,10 @@ class CellFlashCoordinator {
       colIds = flatCols;
     }
 
-    // Start the stopwatch if not already running
-    if (!_stopwatch.isRunning) {
-      _stopwatch.start();
-    }
-
-    final now = _stopwatch.elapsed;
+    // A flash started between ticks is anchored to the last published
+    // animation time, so restarting an in-flight flash keeps the timeline
+    // continuous.
+    final now = _elapsed;
 
     // Create flash states for each cell in the intersection
     for (final rowIndex in rowIndices) {
@@ -97,9 +102,7 @@ class CellFlashCoordinator {
 
     // Start the animation ticker if not already running
     _startTicker();
-    _mutate(() {
-      _elapsed = _stopwatch.elapsed;
-    });
+    _mutate(() {});
   }
 
   /// Per-frame tick advancing the flash animation (~display refresh rate).
@@ -113,18 +116,16 @@ class CellFlashCoordinator {
       return;
     }
 
-    final now = _stopwatch.elapsed;
+    _elapsed = timestamp;
 
     // Remove completed flashes
-    flashes.removeWhere((_, flash) => flash.opacityAt(now) == null);
+    flashes.removeWhere((_, flash) => flash.opacityAt(_elapsed) == null);
 
     if (flashes.isEmpty) {
       _stopTicker();
     }
 
-    _mutate(() {
-      _elapsed = now;
-    });
+    _mutate(() {});
   }
 
   /// Starts the frame ticker if it is not already active.
@@ -134,14 +135,15 @@ class CellFlashCoordinator {
     }
   }
 
-  /// Stops the animation ticker and resets the stopwatch.
+  /// Stops the animation ticker and rewinds the animation clock.
   void _stopTicker() {
     if (_ticker.isActive) {
       _ticker.stop();
     }
     if (flashes.isEmpty) {
-      _stopwatch.stop();
-      _stopwatch.reset();
+      // The next run restarts the ticker, whose elapsed time begins at zero
+      // again, so the published clock has to be rewound with it.
+      _elapsed = Duration.zero;
     }
   }
 

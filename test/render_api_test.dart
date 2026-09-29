@@ -2,6 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:os_grid_flutter/os_grid_flutter.dart';
 
+/// Settles the tree after a flash, with an explicit pump cadence and a
+/// bounded fake-time budget.
+///
+/// The budget is a failure bound, not a correctness assertion: the flash
+/// animation runs on the ticker's clock, so it retires after its last phase
+/// and this settles in a handful of pumps. If a flash ever fails to retire,
+/// its ticker keeps scheduling frames and `pumpAndSettle` spins — the
+/// default ten-minute budget turns that into a ten-minute hang whose outcome
+/// depends on how loaded the machine is, which is how a wall-clock-driven
+/// flash surfaced only intermittently in CI. Thirty seconds of fake time
+/// fails the test in a bounded, diagnosable way instead.
+Future<void> settleAfterFlash(WidgetTester tester) => tester.pumpAndSettle(
+  const Duration(milliseconds: 16),
+  EnginePhase.sendSemanticsUpdate,
+  const Duration(seconds: 30),
+);
+
 void main() {
   group('CellFlashState', () {
     test('opacityAt returns 0.0 during delay phase', () {
@@ -397,7 +414,7 @@ void main() {
         const RefreshCellsParams(rowIndices: [0], columns: ['value']),
       );
       await tester.pump(const Duration(milliseconds: 16));
-      await tester.pumpAndSettle(const Duration(milliseconds: 2000));
+      await settleAfterFlash(tester);
 
       controller.dispose();
     });
@@ -492,7 +509,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 16));
 
       // Wait for full completion
-      await tester.pumpAndSettle(const Duration(milliseconds: 2000));
+      await settleAfterFlash(tester);
 
       controller.dispose();
     });
@@ -536,7 +553,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 16));
 
       // Should complete without error
-      await tester.pumpAndSettle(const Duration(milliseconds: 1000));
+      await settleAfterFlash(tester);
 
       controller.dispose();
     });
