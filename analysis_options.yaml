@@ -52,3 +52,4 @@ analyzer:
         # `pub get` there first — including it here would resolve its
         # imports against this package's config and fail.
         - 'packages/**'
+        - build/**

@@ -159,11 +159,10 @@ void main() {
       find.byWidgetPredicate((w) => w is OsGrid<Map<String, dynamic>>),
     );
     final demoController = demoGrid.controller!;
-    expect(
-      demoController.getSelectedIds(),
-      {'emp-0', 'emp-1'},
-      reason: 'both checkbox taps selected their rows',
-    );
+    expect(demoController.getSelectedIds(), {
+      'emp-0',
+      'emp-1',
+    }, reason: 'both checkbox taps selected their rows');
     // 9. Copy via the context menu and verify the clipboard received the
     //    selected rows.
     await rightClickCell(tester, const Offset(150, 69));

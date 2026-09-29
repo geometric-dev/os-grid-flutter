@@ -215,21 +215,17 @@ void main() {
 
   // Sanity guard: an explicit LTR Directionality inside the RTL harness must
   // still resolve as LTR (direction comes from the nearest Directionality).
-  testWidgets(
-    'golden quartz_none_grouped_ltr_host',
-    (tester) async {
-      await pumpAndCapture(
-        tester,
-        goldenName: 'quartz_none_grouped',
-        theme: OsGridTheme.quartz(),
-        pinned: false,
-        scenario: _Scenario.groupRows,
-        rtl: true,
-        explicitDirection: TextDirection.ltr,
-      );
-    },
-    timeout: const Timeout(Duration(minutes: 2)),
-  );
+  testWidgets('golden quartz_none_grouped_ltr_host', (tester) async {
+    await pumpAndCapture(
+      tester,
+      goldenName: 'quartz_none_grouped',
+      theme: OsGridTheme.quartz(),
+      pinned: false,
+      scenario: _Scenario.groupRows,
+      rtl: true,
+      explicitDirection: TextDirection.ltr,
+    );
+  }, timeout: const Timeout(Duration(minutes: 2)));
 
   // --- Sparkline matrix: {line, area, bar} x {quartz, quartzDark} ---
   // Data is fixed and deterministic; each row shows the same series.
@@ -863,19 +859,15 @@ void main() {
     );
   }, timeout: const Timeout(Duration(minutes: 2)));
 
-  testWidgets(
-    'golden highContrast_tree_expanded',
-    (tester) async {
-      await pumpHcLocaleAndCapture(
-        tester,
-        goldenName: 'highContrast_tree_expanded',
-        tree: true,
-        german: false,
-        theme: OsGridTheme.highContrast(),
-      );
-    },
-    timeout: const Timeout(Duration(minutes: 2)),
-  );
+  testWidgets('golden highContrast_tree_expanded', (tester) async {
+    await pumpHcLocaleAndCapture(
+      tester,
+      goldenName: 'highContrast_tree_expanded',
+      tree: true,
+      german: false,
+      theme: OsGridTheme.highContrast(),
+    );
+  }, timeout: const Timeout(Duration(minutes: 2)));
 
   testWidgets('golden localeDe_pinned', (tester) async {
     await pumpHcLocaleAndCapture(

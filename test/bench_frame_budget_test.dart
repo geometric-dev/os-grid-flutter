@@ -98,90 +98,76 @@ void main() {
     expect(controller.nodeRebuildCount, 2);
   });
 
-  testWidgets(
-    'frame budget p95 under scroll for 100k rows',
-    (tester) async {
-      if (!enabled) {
-        _log('bench scroll: skipped (set OS_GRID_BENCH=1 to run the gate)');
-        return;
-      }
+  testWidgets('frame budget p95 under scroll for 100k rows', (tester) async {
+    if (!enabled) {
+      _log('bench scroll: skipped (set OS_GRID_BENCH=1 to run the gate)');
+      return;
+    }
 
-      await _runScrollBench(tester);
-    },
-    timeout: const Timeout(Duration(minutes: 10)),
-  );
+    await _runScrollBench(tester);
+  }, timeout: const Timeout(Duration(minutes: 10)));
 
-  testWidgets(
-    'cold-start first frame after setRowData of 100k rows',
-    (tester) async {
-      if (!enabled) {
-        _log('bench cold-start: skipped (set OS_GRID_BENCH=1 to run the gate)');
-        return;
-      }
+  testWidgets('cold-start first frame after setRowData of 100k rows', (
+    tester,
+  ) async {
+    if (!enabled) {
+      _log('bench cold-start: skipped (set OS_GRID_BENCH=1 to run the gate)');
+      return;
+    }
 
-      await _runColdStartBench(tester);
-    },
-    timeout: const Timeout(Duration(minutes: 10)),
-  );
+    await _runColdStartBench(tester);
+  }, timeout: const Timeout(Duration(minutes: 10)));
 
-  testWidgets(
-    'edit burst: 50 sequential cell edits on 10k rows',
-    (tester) async {
-      if (!enabled) {
-        _log('bench edit-burst: skipped (set OS_GRID_BENCH=1 to run the gate)');
-        return;
-      }
+  testWidgets('edit burst: 50 sequential cell edits on 10k rows', (
+    tester,
+  ) async {
+    if (!enabled) {
+      _log('bench edit-burst: skipped (set OS_GRID_BENCH=1 to run the gate)');
+      return;
+    }
 
-      await _runEditBurstBench(tester);
-    },
-    timeout: const Timeout(Duration(minutes: 10)),
-  );
+    await _runEditBurstBench(tester);
+  }, timeout: const Timeout(Duration(minutes: 10)));
 
-  testWidgets(
-    'transaction storm: 20 add/remove/update rounds on 50k rows',
-    (tester) async {
-      if (!enabled) {
-        _log(
-          'bench transaction-storm: skipped '
-          '(set OS_GRID_BENCH=1 to run the gate)',
-        );
-        return;
-      }
+  testWidgets('transaction storm: 20 add/remove/update rounds on 50k rows', (
+    tester,
+  ) async {
+    if (!enabled) {
+      _log(
+        'bench transaction-storm: skipped '
+        '(set OS_GRID_BENCH=1 to run the gate)',
+      );
+      return;
+    }
 
-      await _runTransactionStormBench(tester);
-    },
-    timeout: const Timeout(Duration(minutes: 10)),
-  );
+    await _runTransactionStormBench(tester);
+  }, timeout: const Timeout(Duration(minutes: 10)));
 
-  testWidgets(
-    'filter typing: 20 rapid quick-filter changes on 100k rows',
-    (tester) async {
-      if (!enabled) {
-        _log(
-          'bench filter-typing: skipped (set OS_GRID_BENCH=1 to run the gate)',
-        );
-        return;
-      }
+  testWidgets('filter typing: 20 rapid quick-filter changes on 100k rows', (
+    tester,
+  ) async {
+    if (!enabled) {
+      _log(
+        'bench filter-typing: skipped (set OS_GRID_BENCH=1 to run the gate)',
+      );
+      return;
+    }
 
-      await _runFilterTypingBench(tester);
-    },
-    timeout: const Timeout(Duration(minutes: 10)),
-  );
+    await _runFilterTypingBench(tester);
+  }, timeout: const Timeout(Duration(minutes: 10)));
 
-  testWidgets(
-    'column resize: 30 resize gestures on a 20-column grid',
-    (tester) async {
-      if (!enabled) {
-        _log(
-          'bench column-resize: skipped (set OS_GRID_BENCH=1 to run the gate)',
-        );
-        return;
-      }
+  testWidgets('column resize: 30 resize gestures on a 20-column grid', (
+    tester,
+  ) async {
+    if (!enabled) {
+      _log(
+        'bench column-resize: skipped (set OS_GRID_BENCH=1 to run the gate)',
+      );
+      return;
+    }
 
-      await _runColumnResizeBench(tester);
-    },
-    timeout: const Timeout(Duration(minutes: 10)),
-  );
+    await _runColumnResizeBench(tester);
+  }, timeout: const Timeout(Duration(minutes: 10)));
 
   testWidgets(
     'memory: RSS delta while a 100k-row grid is mounted (informational)',
