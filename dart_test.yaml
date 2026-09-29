@@ -1,0 +1,25 @@
+# Runner configuration.
+#
+# Golden baselines are pixel-exact, and Skia rasterisation is not identical
+# across operating systems — the same grid renders sub-pixel differences in
+# text antialiasing and edge blending on Windows versus Linux. The committed
+# baselines are therefore owned by the Linux CI runner, and the golden suite
+# only executes there. Running it elsewhere would report a wall of false
+# failures.
+#
+# To change what a golden depicts: dispatch the "Update goldens" workflow in
+# CI. It re-runs the golden suite with --update-goldens on ubuntu and
+# uploads the regenerated PNGs, which are then committed back. Do not
+# regenerate them from a Windows or macOS checkout — the result will not
+# match the Linux runner.
+tags:
+  golden:
+    on_platform:
+      windows:
+        skip: >-
+          Golden baselines are generated on the Linux CI runner; Skia
+          rasterisation is not pixel-identical across operating systems.
+      macos:
+        skip: >-
+          Golden baselines are generated on the Linux CI runner; Skia
+          rasterisation is not pixel-identical across operating systems.

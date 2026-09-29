@@ -1,0 +1,39 @@
+name: Update goldens
+
+# Golden baselines are pixel-exact, so they are generated on the Linux CI
+# runner (see dart_test.yaml — the golden suite skips on other platforms).
+# To change what a golden depicts, dispatch this workflow: it re-runs the
+# golden suite with --update-goldens on ubuntu and uploads the regenerated
+# PNGs as an artifact. Download the artifact and commit the PNGs back to
+# test/goldens/goldens/ in a follow-up commit.
+#
+# Never regenerate them from a Windows or macOS checkout — the output will
+# not match the Linux runner and CI will fail.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Regenerate golden baselines
+        run: flutter test test/goldens --update-goldens
+
+      - name: Upload regenerated goldens
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: goldens-linux
+          path: test/goldens/goldens
+          retention-days: 14
